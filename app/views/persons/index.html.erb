@@ -1,0 +1,14 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html>
+  <body>
+    <%= form_tag persons_path, :method => :get do %>
+      <%= text_field_tag :search, params[:search] %>
+      <%= submit_tag "Search" %>
+    <% end %>
+
+    <% @persons.each do |person| %>
+      <h1><%= person.name %></h1>
+      <p><%= link_to "Show person", person_path(id: person.uri, person: person) %></p>
+    <% end %>
+  </body>
+</html>
